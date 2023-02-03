@@ -1,9 +1,8 @@
 let cities = ["Sample"];
 
 function renderButtons() {
+  $("#history").empty();
 
-    $('#history').empty();
-    
   for (let i = 0; i < cities.length; i++) {
     let a = $("<button>");
 
@@ -27,3 +26,18 @@ $("#search-button").on("click", function (event) {
 });
 
 renderButtons();
+
+function getCityLonLan() {
+    let cityInput = $(this).attr('data-name');
+    let queryURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityInput + "&limit=1&appid=d7d08d016a42640d3383d7dbad4a2c9c";
+
+    $.ajax({
+        url: queryURL,
+        method: "GET",
+      }).then(function (response) {
+        console.log(response);
+
+
+    })}
+
+
