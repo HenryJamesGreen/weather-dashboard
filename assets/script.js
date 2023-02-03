@@ -1,6 +1,9 @@
 let cities = ["Sample"];
 
 function renderButtons() {
+
+    $('#history').empty();
+    
   for (let i = 0; i < cities.length; i++) {
     let a = $("<button>");
 
@@ -12,8 +15,8 @@ function renderButtons() {
   }
 }
 
-$("search-button").on("submit", function (event) {
-  //event.preventDefault();
+$("#search-button").on("click", function (event) {
+  event.preventDefault();
 
   const city = $("#search-input").val().trim();
   console.log(city);
