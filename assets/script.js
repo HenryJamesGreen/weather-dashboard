@@ -8,6 +8,8 @@ function renderButtons() {
 
     a.attr("data-name", cities[i]);
 
+    a.addClass("city-select");
+
     a.text(cities[i]);
 
     $("#history").append(a);
@@ -28,16 +30,20 @@ $("#search-button").on("click", function (event) {
 renderButtons();
 
 function getCityLonLan() {
-    let cityInput = $(this).attr('data-name');
-    let queryURL = "https://api.openweathermap.org/geo/1.0/direct?q=" + cityInput + "&limit=1&appid=d7d08d016a42640d3383d7dbad4a2c9c";
+  let cityInput = $(this).attr("data-name");
+  console.log(cityInput);
+  let queryURL =
+    "https://api.openweathermap.org/geo/1.0/direct?q=" +
+    cityInput +
+    "&limit=1&appid=d7d08d016a42640d3383d7dbad4a2c9c";
 
-    $.ajax({
-        url: queryURL,
-        method: "GET",
-      }).then(function (response) {
-        console.log(response);
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
+    console.log(response[0].lat , response[0].lon);
+  });
+}
 
-
-    })}
-
-
+$(document).on("click", ".city-select", getCityLonLan);
