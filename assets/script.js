@@ -41,8 +41,12 @@ function getCityLonLan() {
     url: queryURL,
     method: "GET",
   }).then(function (response) {
-    console.log(response);
-    console.log(response[0].lat , response[0].lon);
+    //console.log(response);
+    //console.log(response[0].lat , response[0].lon);
+    lat = response[0].lat;
+    lon = response[0].lon;
+    console.log(lat);
+    console.log(lon);
   });
 }
 
