@@ -47,7 +47,25 @@ function getCityLonLan() {
     lon = response[0].lon;
     console.log(lat);
     console.log(lon);
+
+    generateDetails();
   });
 }
 
 $(document).on("click", ".city-select", getCityLonLan);
+
+function generateDetails() {
+  let queryURL =
+    "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+    lat +
+    "&lon=" +
+    lon +
+    "&appid=d7d08d016a42640d3383d7dbad4a2c9c";
+
+  $.ajax({
+    url: queryURL,
+    method: "GET",
+  }).then(function (response) {
+    console.log(response);
+  });
+}
