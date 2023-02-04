@@ -67,5 +67,21 @@ function generateDetails() {
     method: "GET",
   }).then(function (response) {
     console.log(response);
+
+    const today = $("#today");
+
+    const todayContainer = $("<div>");
+
+    const titleEl = $("<h2>");
+    titleEl.text(response.city.name);
+    todayContainer.append(titleEl);
+    today.prepend(todayContainer);
   });
+
+  // generateDetailsToday()
 }
+
+//function generateDetailsToday () {
+//let todayTitle = $("<h2>");
+// todayTitle.text(response.city.name);
+//}
