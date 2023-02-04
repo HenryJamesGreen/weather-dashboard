@@ -1,4 +1,4 @@
-let cities = ["Sample"];
+let cities = [];
 
 function renderButtons() {
   $("#history").empty();
@@ -99,3 +99,6 @@ function generateDetails() {
     today.prepend(todayContainer);
   });
 }
+
+console.log(moment().endOf('day').fromNow());
+console.log(moment().add(1, 'day').format("YYYY-MM-DD 00:00:00"));
