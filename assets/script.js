@@ -69,19 +69,21 @@ function generateDetails() {
     console.log(response);
 
     const today = $("#today");
+    today.empty();
 
     const todayContainer = $("<div>");
 
     const titleEl = $("<h2>");
-    titleEl.text(response.city.name);
+    titleEl.text(
+      response.city.name +
+        " (" +
+        moment().format("MMMM Do YYYY, H:mm:ss") +
+        ") "
+    );
     todayContainer.append(titleEl);
+
+    
+
     today.prepend(todayContainer);
   });
-
-  // generateDetailsToday()
 }
-
-//function generateDetailsToday () {
-//let todayTitle = $("<h2>");
-// todayTitle.text(response.city.name);
-//}
