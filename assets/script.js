@@ -97,8 +97,23 @@ function generateDetails() {
     todayContainer.append(humEl);
 
     today.prepend(todayContainer);
+
+    ///forecast
+
+    const tomorrow = $("#forecast");
+    tomorrow.empty();
+
+    const forecastContainer = $("<div>");
+    //add 5 day title
+
+    //add details day 1
+
+    const tomorrowTitleEl = $("<h4>");
+    tomorrowTitleEl.text(moment().add(1, "day").format("DD-M-YYYY"));
+    forecastContainer.append(tomorrowTitleEl);
+    tomorrow.append(forecastContainer);
   });
 }
 
-console.log(moment().endOf('day').fromNow());
-console.log(moment().add(1, 'day').format("YYYY-MM-DD 00:00:00"));
+console.log(moment().endOf("day").fromNow());
+console.log(moment().add(1, "day").format("YYYY-MM-DD 00:00:00"));
