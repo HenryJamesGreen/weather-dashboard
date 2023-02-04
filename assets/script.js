@@ -82,7 +82,19 @@ function generateDetails() {
     );
     todayContainer.append(titleEl);
 
-    
+    let TempEl = $("<p>");
+    TempEl.text(
+      "Temp: " + Math.round(response.list[0].main.temp - 273.15) + "℃"
+    );
+    todayContainer.append(TempEl);
+
+    let windEl = $("<p>");
+    windEl.text("Wind Speed: " + response.list[0].wind.speed + " kph");
+    todayContainer.append(windEl);
+
+    let humEl = $("<p>");
+    humEl.text("Humidity: " + response.list[0].main.humidity + " %");
+    todayContainer.append(humEl);
 
     today.prepend(todayContainer);
   });
