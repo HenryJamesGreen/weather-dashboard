@@ -112,8 +112,43 @@ function generateDetails() {
     tomorrowTitleEl.text(moment().add(1, "day").format("DD-M-YYYY"));
     forecastContainer.append(tomorrowTitleEl);
     tomorrow.append(forecastContainer);
+
+    let timeOne = moment().add(1, "day").format("YYYY-MM-DD 00:00:00");
+    let timeTwo = moment().add(1, "day").format("YYYY-MM-DD 03:00:00");
+    let timeThree = moment().add(1, "day").format("YYYY-MM-DD 06:00:00");
+    let timeFour = moment().add(1, "day").format("YYYY-MM-DD 09:00:00");
+    let timeFive = moment().add(1, "day").format("YYYY-MM-DD 12:00:00");
+    let timeSix = moment().add(1, "day").format("YYYY-MM-DD 15:00:00");
+    let timeSeven = moment().add(1, "day").format("YYYY-MM-DD 18:00:00");
+    let timeEight = moment().add(1, "day").format("YYYY-MM-DD 21:00:00");
+
+    //console.log(timeOne);
+    // console.log(response.list.length);
+
+    let listsArray = [];
+
+    for (let i = 0; response.list.length; i++) {
+      //console.log(response.list[i].dt_txt);
+      if (
+        (response.list[i].dt_txt === timeOne) |
+        (response.list[i].dt_txt === timeTwo) |
+        (response.list[i].dt_txt === timeThree) |
+        (response.list[i].dt_txt === timeFour) |
+        (response.list[i].dt_txt === timeFive) |
+        (response.list[i].dt_txt === timeSix) |
+        (response.list[i].dt_txt === timeSeven) |
+        (response.list[i].dt_txt === timeEight)
+      ) {
+        listsArray.push(response.list[i]);
+        //console.log(tempsArray.list[i].main.temp);
+      }
+      //console.log(listsArray);
+    }
+    console.log(listsArray);
+    //let tempsTotal = listsArray.main.temp.reduce();
+    //console.log(tempsTotal);
   });
 }
 
-console.log(moment().endOf("day").fromNow());
-console.log(moment().add(1, "day").format("YYYY-MM-DD 00:00:00"));
+//console.log(moment().endOf("day").fromNow());
+//console.log(moment().add(1, "day").format("YYYY-MM-DD 00:00:00"));
