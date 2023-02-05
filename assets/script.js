@@ -127,7 +127,7 @@ function generateDetails() {
 
     let listsArray = [];
 
-    for (let i = 0; response.list.length; i++) {
+    for (let i = 0; i < response.list.length; i++) {
       //console.log(response.list[i].dt_txt);
       if (
         (response.list[i].dt_txt === timeOne) |
@@ -145,8 +145,8 @@ function generateDetails() {
       //console.log(listsArray);
     }
     console.log(listsArray);
-    //let tempsTotal = listsArray.main.temp.reduce();
-    //console.log(tempsTotal);
+    let tempsTotal = listsArray.main.temp.reduce();
+    console.log(tempsTotal);
   });
 }
 
