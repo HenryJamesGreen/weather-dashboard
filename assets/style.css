@@ -2,7 +2,8 @@ p {
   font-size: 13px;
 }
 
-.small-title.h4 {
-    font-size: 1px;
-    color: aquamarine;
+.card-title {
+  font-size: 17px;
+
+  border: black solid 2px;
 }

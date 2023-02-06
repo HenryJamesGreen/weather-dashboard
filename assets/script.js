@@ -114,6 +114,7 @@ function generateDetails() {
     //add details day 1
 
     const tomorrowTitleEl = $("<h4>");
+    tomorrowTitleEl.addClass("card-title");
     tomorrowTitleEl.text(moment().add(1, "day").format("DD-M-YYYY"));
     forecastContainer.append(tomorrowTitleEl);
     tomorrow.append(forecastContainer);
@@ -171,6 +172,7 @@ function generateDetails() {
 
     //add details day 2
     const day2TitleEl = $("<h4>");
+    day2TitleEl.addClass("card-title");
     day2TitleEl.text(moment().add(2, "day").format("DD-M-YYYY"));
     forecastContainer2.append(day2TitleEl);
     forecastContainer2.addClass("col-lg-2 card");
@@ -196,6 +198,7 @@ function generateDetails() {
 
     //add details day 3
     const day3TitleEl = $("<h4>");
+    day3TitleEl.addClass("card-title");
     day3TitleEl.text(moment().add(3, "day").format("DD-M-YYYY"));
     forecastContainer3.append(day3TitleEl);
     tomorrow.append(forecastContainer3);
@@ -221,6 +224,7 @@ function generateDetails() {
 
     //add details day 4
     const day4TitleEl = $("<h4>");
+    day4TitleEl.addClass("card-title");
     day4TitleEl.text(moment().add(4, "day").format("DD-M-YYYY"));
     forecastContainer4.append(day4TitleEl);
     tomorrow.append(forecastContainer4);
@@ -246,6 +250,7 @@ function generateDetails() {
 
     //add details day 5
     const day5TitleEl = $("<h4>");
+    day5TitleEl.addClass("card-title");
     day5TitleEl.text(moment().add(5, "day").format("DD-M-YYYY"));
     forecastContainer5.append(day5TitleEl);
     tomorrow.append(forecastContainer5);
