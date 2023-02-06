@@ -8,6 +8,7 @@ function renderButtons() {
 
     a.attr("data-name", cities[i]);
     a.attr("id", [i + 1]);
+
     localStorage.setItem([i + 1], cities[i]);
 
     a.addClass("city-select");
@@ -26,12 +27,8 @@ $("#search-button").on("click", function (event) {
 
   cities.push(city);
   console.log(cities);
-
   renderButtons();
 });
-
-renderButtons();
-getItem();
 
 function getCityLonLan() {
   let cityInput = $(this).attr("data-name");
@@ -57,6 +54,9 @@ function getCityLonLan() {
 }
 
 $(document).on("click", ".city-select", getCityLonLan);
+
+renderButtons();
+getItem();
 
 function generateDetails() {
   let queryURL =
@@ -260,7 +260,7 @@ function generateDetails() {
     forecastContainer5.append(day5HumEl);
   });
 }
-/*
+
 function getItem() {
   let citySelect = [];
   citySelect.push(localStorage.getItem("1"));
@@ -314,11 +314,18 @@ function getItem() {
     $("#history").prepend(f);
   }
 }
-*/
+
 //get item will log the 5 latest searches upon user's return.
-
-
+/*
 function getItem() {
+  cities.push(localStorage.getItem("1"));
+  cities.push(localStorage.getItem("2"));
+  cities.push(localStorage.getItem("3"));
+  console.log(cities);
+
+  renderButtons();
+
+  /*
   //LS 1
   if(localStorage.getItem("1") === null) {
     
@@ -368,9 +375,6 @@ function getItem() {
   newButton5.addClass("city-select");
   newButton5.text(localStorage.getItem("5"));
   $("#history").prepend(newButton5);}
-
-  
-}
+*/
 
 //console.log(typeof(localStorage.getItem("cities")));
-
