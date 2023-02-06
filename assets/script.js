@@ -9,6 +9,7 @@ function renderButtons() {
     a.attr("data-name", cities[i]);
     a.attr("id", [i + 1]);
 
+    //localStorage.setItem([i + 1], cities[i]);
     localStorage.setItem([i + 1], cities[i]);
 
     a.addClass("city-select");
@@ -150,6 +151,7 @@ function generateDetails() {
       "Temp: " + Math.round(listsArray[0].main.temp - 273.15) + "℃"
     );
     forecastContainer.append(tomorrowTempEl);
+    forecastContainer.addClass("col-lg-2 card");
 
     //tomorrow's wind
 
@@ -171,6 +173,7 @@ function generateDetails() {
     const day2TitleEl = $("<h4>");
     day2TitleEl.text(moment().add(2, "day").format("DD-M-YYYY"));
     forecastContainer2.append(day2TitleEl);
+    forecastContainer2.addClass("col-lg-2 card");
     tomorrow.append(forecastContainer2);
 
     const day2TempEl = $("<p>");
@@ -196,6 +199,7 @@ function generateDetails() {
     day3TitleEl.text(moment().add(3, "day").format("DD-M-YYYY"));
     forecastContainer3.append(day3TitleEl);
     tomorrow.append(forecastContainer3);
+    forecastContainer3.addClass("col-lg-2 card");
 
     const day3TempEl = $("<p>");
     day3TempEl.text(
@@ -220,6 +224,7 @@ function generateDetails() {
     day4TitleEl.text(moment().add(4, "day").format("DD-M-YYYY"));
     forecastContainer4.append(day4TitleEl);
     tomorrow.append(forecastContainer4);
+    forecastContainer4.addClass("col-lg-2 card");
 
     const day4TempEl = $("<p>");
     day4TempEl.text(
@@ -244,6 +249,7 @@ function generateDetails() {
     day5TitleEl.text(moment().add(5, "day").format("DD-M-YYYY"));
     forecastContainer5.append(day5TitleEl);
     tomorrow.append(forecastContainer5);
+    forecastContainer5.addClass("col-lg-2 card");
 
     const day5TempEl = $("<p>");
     day5TempEl.text(
