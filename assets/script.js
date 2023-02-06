@@ -113,14 +113,7 @@ function generateDetails() {
     forecastContainer.append(tomorrowTitleEl);
     tomorrow.append(forecastContainer);
 
-    let timeOne = moment().add(1, "day").format("YYYY-MM-DD 00:00:00");
-    let timeTwo = moment().add(1, "day").format("YYYY-MM-DD 03:00:00");
-    let timeThree = moment().add(1, "day").format("YYYY-MM-DD 06:00:00");
-    let timeFour = moment().add(1, "day").format("YYYY-MM-DD 09:00:00");
-    let timeFive = moment().add(1, "day").format("YYYY-MM-DD 12:00:00");
-    let timeSix = moment().add(1, "day").format("YYYY-MM-DD 15:00:00");
-    let timeSeven = moment().add(1, "day").format("YYYY-MM-DD 18:00:00");
-    let timeEight = moment().add(1, "day").format("YYYY-MM-DD 21:00:00");
+    let timeOne = moment().add(1, "day").format("YYYY-MM-DD 12:00:00");
 
     //console.log(timeOne);
     // console.log(response.list.length);
@@ -129,16 +122,7 @@ function generateDetails() {
 
     for (let i = 0; i < response.list.length; i++) {
       //console.log(response.list[i].dt_txt);
-      if (
-        (response.list[i].dt_txt === timeOne) |
-        (response.list[i].dt_txt === timeTwo) |
-        (response.list[i].dt_txt === timeThree) |
-        (response.list[i].dt_txt === timeFour) |
-        (response.list[i].dt_txt === timeFive) |
-        (response.list[i].dt_txt === timeSix) |
-        (response.list[i].dt_txt === timeSeven) |
-        (response.list[i].dt_txt === timeEight)
-      ) {
+      if (response.list[i].dt_txt === timeOne) {
         listsArray.push(response.list[i]);
         //console.log(tempsArray.list[i].main.temp);
       }
@@ -149,20 +133,20 @@ function generateDetails() {
     //tomorrow's temp
     const tomorrowTempEl = $("<p>");
     tomorrowTempEl.text(
-      "Temp: " + Math.round(listsArray[4].main.temp - 273.15) + "℃"
+      "Temp: " + Math.round(listsArray[0].main.temp - 273.15) + "℃"
     );
     forecastContainer.append(tomorrowTempEl);
 
     //tomorrow's wind
 
     const tomorrowWindEl = $("<p>");
-    tomorrowWindEl.text("Wind Speed: " + listsArray[4].wind.speed + " kph");
+    tomorrowWindEl.text("Wind: " + listsArray[0].wind.speed + " kph");
     forecastContainer.append(tomorrowWindEl);
 
     //tomorrow's humidity
 
     const tomorrowHumEl = $("<p>");
-    tomorrowHumEl.text("Humidity: " + listsArray[4].main.humidity + " %");
+    tomorrowHumEl.text("Humidity: " + listsArray[0].main.humidity + " %");
     forecastContainer.append(tomorrowHumEl);
 
     //console.log(tempsTotal);
