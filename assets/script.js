@@ -263,39 +263,54 @@ function generateDetails() {
 //get item will log the 5 latest searches upon user's return.
 function getItem() {
   //LS 1
-  let newButton = $("<button>");
-  newButton.attr("data-name", localStorage.getItem("1"));
-  newButton.addClass("city-select");
-  newButton.text(localStorage.getItem("1"));
-  $("#history").prepend(newButton);
+  if (localStorage.getItem("1") !== "") {
+  } else {
+    let newButton = $("<button>");
+    newButton.attr("data-name", localStorage.getItem("1"));
+    newButton.addClass("city-select");
+    newButton.text(localStorage.getItem("1"));
+    $("#history").prepend(newButton);
+  }
 
   //LS 2
-  let newButton2 = $("<button>");
-  newButton2.attr("data-name", localStorage.getItem("2"));
-  newButton2.addClass("city-select");
-  newButton2.text(localStorage.getItem("2"));
-  $("#history").prepend(newButton2);
+  if (localStorage.getItem("2") !== "") {
+  } else {
+    let newButton2 = $("<button>");
+    newButton2.attr("data-name", localStorage.getItem("2"));
+    newButton2.addClass("city-select");
+    newButton2.text(localStorage.getItem("2"));
+    $("#history").prepend(newButton2);
+  }
 
   //LS 3
-  let newButton3 = $("<button>");
-  newButton3.attr("data-name", localStorage.getItem("3"));
-  newButton3.addClass("city-select");
-  newButton3.text(localStorage.getItem("3"));
-  $("#history").prepend(newButton3);
+  if (localStorage.getItem("3") !== "") {
+  } else {
+    let newButton3 = $("<button>");
+    newButton3.attr("data-name", localStorage.getItem("3"));
+    newButton3.addClass("city-select");
+    newButton3.text(localStorage.getItem("3"));
+    $("#history").prepend(newButton3);
+  }
 
   //LS 4
-  let newButton4 = $("<button>");
-  newButton4.attr("data-name", localStorage.getItem("4"));
-  newButton4.addClass("city-select");
-  newButton4.text(localStorage.getItem("4"));
-  $("#history").prepend(newButton4);
+  if (localStorage.getItem("4") !== "") {
+  } else {
+    let newButton4 = $("<button>");
+    newButton4.attr("data-name", localStorage.getItem("4"));
+    newButton4.addClass("city-select");
+    newButton4.text(localStorage.getItem("4"));
+    $("#history").prepend(newButton4);
+  }
 
   //LS 5
-  let newButton5 = $("<button>");
-  newButton5.attr("data-name", localStorage.getItem("5"));
-  newButton5.addClass("city-select");
-  newButton5.text(localStorage.getItem("5"));
-  $("#history").prepend(newButton5);
+  if (localStorage.getItem("5") !== "") {
+  } else {
+    let newButton5 = $("<button>");
+    newButton5.attr("data-name", localStorage.getItem("5"));
+    newButton5.addClass("city-select");
+    newButton5.text(localStorage.getItem("5"));
+    $("#history").prepend(newButton5);
+  }
 }
 
 //console.log(typeof(localStorage.getItem("cities")));
