@@ -114,6 +114,10 @@ function generateDetails() {
     tomorrow.append(forecastContainer);
 
     let timeOne = moment().add(1, "day").format("YYYY-MM-DD 12:00:00");
+    let timeTwo = moment().add(2, "day").format("YYYY-MM-DD 12:00:00");
+    let timeThree = moment().add(3, "day").format("YYYY-MM-DD 12:00:00");
+    let timeFour = moment().add(4, "day").format("YYYY-MM-DD 12:00:00");
+    let timeFive = moment().add(5, "day").format("YYYY-MM-DD 12:00:00");
 
     //console.log(timeOne);
     // console.log(response.list.length);
@@ -122,7 +126,13 @@ function generateDetails() {
 
     for (let i = 0; i < response.list.length; i++) {
       //console.log(response.list[i].dt_txt);
-      if (response.list[i].dt_txt === timeOne) {
+      if (
+        (response.list[i].dt_txt === timeOne) |
+        (response.list[i].dt_txt === timeTwo) |
+        (response.list[i].dt_txt === timeThree) |
+        (response.list[i].dt_txt === timeFour) |
+        (response.list[i].dt_txt === timeFive)
+      ) {
         listsArray.push(response.list[i]);
         //console.log(tempsArray.list[i].main.temp);
       }
@@ -149,9 +159,29 @@ function generateDetails() {
     tomorrowHumEl.text("Humidity: " + listsArray[0].main.humidity + " %");
     forecastContainer.append(tomorrowHumEl);
 
-    //console.log(tempsTotal);
+    //Day 2.
+
+    const forecastContainer2 = $("<div>");
+    //add 5 day title
+
+    //add details day 1
+    const day2TitleEl = $("<h4>");
+    day2TitleEl.text(moment().add(2, "day").format("DD-M-YYYY"));
+    forecastContainer2.append(day2TitleEl);
+    tomorrow.append(forecastContainer2);
+
+    const day2TempEl = $("<p>");
+    day2TempEl.text(
+      "Temp: " + Math.round(listsArray[1].main.temp - 273.15) + "℃"
+    );
+    forecastContainer2.append(day2TempEl);
+
+    const day2WindEl = $("<p>");
+    day2WindEl.text("Wind: " + listsArray[1].wind.speed + " kph");
+    forecastContainer2.append(day2WindEl);
+
+    const day2HumEl = $("<p>");
+    day2HumEl.text("Humidity: " + listsArray[1].main.humidity + " %");
+    forecastContainer2.append(day2HumEl);
   });
 }
-
-//console.log(moment().endOf("day").fromNow());
-//console.log(moment().add(1, "day").format("YYYY-MM-DD 00:00:00"));
