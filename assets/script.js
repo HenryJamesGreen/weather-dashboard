@@ -2,11 +2,13 @@ let cities = [];
 
 function renderButtons() {
   $("#history").empty();
-
+  getItem();
   for (let i = 0; i < cities.length; i++) {
     let a = $("<button>");
 
     a.attr("data-name", cities[i]);
+    a.attr("id", [i + 1]);
+    localStorage.setItem([i + 1], cities[i]);
 
     a.addClass("city-select");
 
@@ -24,6 +26,7 @@ $("#search-button").on("click", function (event) {
 
   cities.push(city);
   console.log(cities);
+
   renderButtons();
 });
 
@@ -256,3 +259,43 @@ function generateDetails() {
     forecastContainer5.append(day5HumEl);
   });
 }
+
+//get item will log the 5 latest searches upon user's return.
+function getItem() {
+  //LS 1
+  let newButton = $("<button>");
+  newButton.attr("data-name", localStorage.getItem("1"));
+  newButton.addClass("city-select");
+  newButton.text(localStorage.getItem("1"));
+  $("#history").prepend(newButton);
+
+  //LS 2
+  let newButton2 = $("<button>");
+  newButton2.attr("data-name", localStorage.getItem("2"));
+  newButton2.addClass("city-select");
+  newButton2.text(localStorage.getItem("2"));
+  $("#history").prepend(newButton2);
+
+  //LS 3
+  let newButton3 = $("<button>");
+  newButton3.attr("data-name", localStorage.getItem("3"));
+  newButton3.addClass("city-select");
+  newButton3.text(localStorage.getItem("3"));
+  $("#history").prepend(newButton3);
+
+  //LS 4
+  let newButton4 = $("<button>");
+  newButton4.attr("data-name", localStorage.getItem("4"));
+  newButton4.addClass("city-select");
+  newButton4.text(localStorage.getItem("4"));
+  $("#history").prepend(newButton4);
+
+  //LS 5
+  let newButton5 = $("<button>");
+  newButton5.attr("data-name", localStorage.getItem("5"));
+  newButton5.addClass("city-select");
+  newButton5.text(localStorage.getItem("5"));
+  $("#history").prepend(newButton5);
+}
+
+//console.log(typeof(localStorage.getItem("cities")));
