@@ -2,7 +2,7 @@ let cities = [];
 
 function renderButtons() {
   $("#history").empty();
-  getItem();
+
   for (let i = 0; i < cities.length; i++) {
     let a = $("<button>");
 
@@ -31,6 +31,7 @@ $("#search-button").on("click", function (event) {
 });
 
 renderButtons();
+getItem();
 
 function getCityLonLan() {
   let cityInput = $(this).attr("data-name");
@@ -259,7 +260,7 @@ function generateDetails() {
     forecastContainer5.append(day5HumEl);
   });
 }
-
+/*
 function getItem() {
   let citySelect = [];
   citySelect.push(localStorage.getItem("1"));
@@ -275,7 +276,7 @@ function getItem() {
     b.attr("data-name", citySelect[0]);
     b.addClass("city-select");
     b.text(citySelect[0]);
-    $("#history").append(b);
+    $("#history").prepend(b);
   }
 
   if (citySelect[1] === null) {
@@ -284,7 +285,7 @@ function getItem() {
     c.attr("data-name", citySelect[1]);
     c.addClass("city-select");
     c.text(citySelect[1]);
-    $("#history").append(c);
+    $("#history").prepend(c);
   }
 
   if (citySelect[2] === null) {
@@ -293,7 +294,7 @@ function getItem() {
     d.attr("data-name", citySelect[2]);
     d.addClass("city-select");
     d.text(citySelect[2]);
-    $("#history").append(d);
+    $("#history").prepend(d);
   }
   if (citySelect[3] === null) {
   } else {
@@ -301,7 +302,7 @@ function getItem() {
     e.attr("data-name", citySelect[3]);
     e.addClass("city-select");
     e.text(citySelect[3]);
-    $("#history").append(e);
+    $("#history").prepend(e);
   }
 
   if (citySelect[4] === null) {
@@ -310,16 +311,16 @@ function getItem() {
     f.attr("data-name", citySelect[4]);
     f.addClass("city-select");
     f.text(citySelect[4]);
-    $("#history").append(f);
+    $("#history").prepend(f);
   }
 }
-
+*/
 //get item will log the 5 latest searches upon user's return.
 
-/*
+
 function getItem() {
   //LS 1
-  if(localStorage.getItem("1") === "") {
+  if(localStorage.getItem("1") === null) {
     
   } else {
   let newButton = $("<button>");
@@ -329,7 +330,7 @@ function getItem() {
   $("#history").prepend(newButton); }
 
   //LS 2
-  if(localStorage.getItem === ("2")) {
+  if(localStorage.getItem("2") === null) {
     
   } else {
   let newButton2 = $("<button>");
@@ -339,7 +340,7 @@ function getItem() {
   $("#history").prepend(newButton2);}
 
   //LS 3
-  if(localStorage.getItem("3") === "") {
+  if(localStorage.getItem("3") === null ) {
     
   } else {
   let newButton3 = $("<button>");
@@ -349,7 +350,7 @@ function getItem() {
   $("#history").prepend(newButton3);}
 
   //LS 4
-  if(localStorage.getItem("4") === "") {
+  if(localStorage.getItem("4") === null) {
     
   } else {
   let newButton4 = $("<button>");
@@ -359,7 +360,7 @@ function getItem() {
   $("#history").prepend(newButton4);}
 
   //LS 5
-  if(localStorage.getItem("5") === "") {
+  if(localStorage.getItem("5") === null) {
     
   } else {
   let newButton5 = $("<button>");
@@ -372,4 +373,4 @@ function getItem() {
 }
 
 //console.log(typeof(localStorage.getItem("cities")));
-*/
+
