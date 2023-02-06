@@ -145,11 +145,25 @@ function generateDetails() {
       //console.log(listsArray);
     }
     console.log(listsArray);
+
+    //tomorrow's temp
     const tomorrowTempEl = $("<p>");
     tomorrowTempEl.text(
       "Temp: " + Math.round(listsArray[4].main.temp - 273.15) + "℃"
     );
     forecastContainer.append(tomorrowTempEl);
+
+    //tomorrow's wind
+
+    const tomorrowWindEl = $("<p>");
+    tomorrowWindEl.text("Wind Speed: " + listsArray[4].wind.speed + " kph");
+    forecastContainer.append(tomorrowWindEl);
+
+    //tomorrow's humidity
+
+    const tomorrowHumEl = $("<p>");
+    tomorrowHumEl.text("Humidity: " + listsArray[4].main.humidity + " %");
+    forecastContainer.append(tomorrowHumEl);
 
     //console.log(tempsTotal);
   });
