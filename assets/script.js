@@ -211,7 +211,7 @@ function generateDetails() {
 
     const forecastContainer4 = $("<div>");
 
-    //add details day 3
+    //add details day 4
     const day4TitleEl = $("<h4>");
     day4TitleEl.text(moment().add(4, "day").format("DD-M-YYYY"));
     forecastContainer4.append(day4TitleEl);
@@ -230,5 +230,29 @@ function generateDetails() {
     const day4HumEl = $("<p>");
     day4HumEl.text("Humidity: " + listsArray[3].main.humidity + " %");
     forecastContainer4.append(day4HumEl);
+
+    //Day 5.
+
+    const forecastContainer5 = $("<div>");
+
+    //add details day 5
+    const day5TitleEl = $("<h4>");
+    day5TitleEl.text(moment().add(5, "day").format("DD-M-YYYY"));
+    forecastContainer5.append(day5TitleEl);
+    tomorrow.append(forecastContainer5);
+
+    const day5TempEl = $("<p>");
+    day5TempEl.text(
+      "Temp: " + Math.round(listsArray[4].main.temp - 273.15) + "℃"
+    );
+    forecastContainer5.append(day5TempEl);
+
+    const day5WindEl = $("<p>");
+    day5WindEl.text("Wind: " + listsArray[4].wind.speed + " kph");
+    forecastContainer5.append(day5WindEl);
+
+    const day5HumEl = $("<p>");
+    day5HumEl.text("Humidity: " + listsArray[4].main.humidity + " %");
+    forecastContainer5.append(day5HumEl);
   });
 }
