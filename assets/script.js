@@ -145,8 +145,13 @@ function generateDetails() {
       //console.log(listsArray);
     }
     console.log(listsArray);
-    let tempsTotal = listsArray.main.temp.reduce();
-    console.log(tempsTotal);
+    const tomorrowTempEl = $("<p>");
+    tomorrowTempEl.text(
+      "Temp: " + Math.round(listsArray[4].main.temp - 273.15) + "℃"
+    );
+    forecastContainer.append(tomorrowTempEl);
+
+    //console.log(tempsTotal);
   });
 }
 
