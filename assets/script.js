@@ -1,7 +1,10 @@
-let cities = [];
+//let cities = [];
+let cities = JSON.parse(localStorage.getItem("buttons"));
+//let cities = JSON.parse(localStorage.getItem("buttons"));
 
 function renderButtons() {
   $("#history").empty();
+  
 
   for (let i = 0; i < cities.length; i++) {
     let a = $("<button>");
@@ -10,7 +13,8 @@ function renderButtons() {
     a.attr("id", [i + 1]);
 
     //localStorage.setItem([i + 1], cities[i]);
-    localStorage.setItem([i + 1], cities[i]);
+    localStorage.setItem("buttons", JSON.stringify(cities));
+
 
     a.addClass("city-select");
 
@@ -57,7 +61,7 @@ function getCityLonLan() {
 $(document).on("click", ".city-select", getCityLonLan);
 
 renderButtons();
-getItem();
+
 
 function generateDetails() {
   let queryURL =
@@ -80,10 +84,7 @@ function generateDetails() {
 
     const titleEl = $("<h2>");
     titleEl.text(
-      response.city.name +
-        " (" +
-        moment().format("MMMM Do YYYY, H:mm:ss") +
-        ") "
+      response.city.name + " (" + moment().format("MMMM Do YYYY") + ") "
     );
     todayContainer.append(titleEl);
 
@@ -272,120 +273,24 @@ function generateDetails() {
   });
 }
 
-function getItem() {
-  let citySelect = [];
-  citySelect.push(localStorage.getItem("1"));
-  citySelect.push(localStorage.getItem("2"));
-  citySelect.push(localStorage.getItem("3"));
-  citySelect.push(localStorage.getItem("4"));
-  citySelect.push(localStorage.getItem("5"));
-  console.log(citySelect);
 
-  if (citySelect[0] === null) {
-  } else {
-    let b = $("<button>");
-    b.attr("data-name", citySelect[0]);
-    b.addClass("city-select");
-    b.text(citySelect[0]);
-    $("#history").prepend(b);
-  }
+function getItems() {
 
-  if (citySelect[1] === null) {
-  } else {
-    let c = $("<button>");
-    c.attr("data-name", citySelect[1]);
-    c.addClass("city-select");
-    c.text(citySelect[1]);
-    $("#history").prepend(c);
-  }
 
-  if (citySelect[2] === null) {
-  } else {
-    let d = $("<button>");
-    d.attr("data-name", citySelect[2]);
-    d.addClass("city-select");
-    d.text(citySelect[2]);
-    $("#history").prepend(d);
-  }
-  if (citySelect[3] === null) {
-  } else {
-    let e = $("<button>");
-    e.attr("data-name", citySelect[3]);
-    e.addClass("city-select");
-    e.text(citySelect[3]);
-    $("#history").prepend(e);
-  }
 
-  if (citySelect[4] === null) {
-  } else {
-    let f = $("<button>");
-    f.attr("data-name", citySelect[4]);
-    f.addClass("city-select");
-    f.text(citySelect[4]);
-    $("#history").prepend(f);
-  }
+  window.addEventListener("load", function() {
+    let buttons = JSON.parse(localStorage.getItem("cities"));
+    if (buttons) {
+      buttons.forEach(function(button) {
+        let btn = document.createElement("button");
+        btn.innerHTML = button.text;
+        btn.style.backgroundColor = button.color;
+        document.body.appendChild(btn);
+      });
+    }
+  });
+  
+
 }
 
-//get item will log the 5 latest searches upon user's return.
-/*
-function getItem() {
-  cities.push(localStorage.getItem("1"));
-  cities.push(localStorage.getItem("2"));
-  cities.push(localStorage.getItem("3"));
-  console.log(cities);
-
-  renderButtons();
-
-  /*
-  //LS 1
-  if(localStorage.getItem("1") === null) {
-    
-  } else {
-  let newButton = $("<button>");
-  newButton.attr("data-name", localStorage.getItem("1"));
-  newButton.addClass("city-select");
-  newButton.text(localStorage.getItem("1"));
-  $("#history").prepend(newButton); }
-
-  //LS 2
-  if(localStorage.getItem("2") === null) {
-    
-  } else {
-  let newButton2 = $("<button>");
-  newButton2.attr("data-name", localStorage.getItem("2"));
-  newButton2.addClass("city-select");
-  newButton2.text(localStorage.getItem("2"));
-  $("#history").prepend(newButton2);}
-
-  //LS 3
-  if(localStorage.getItem("3") === null ) {
-    
-  } else {
-  let newButton3 = $("<button>");
-  newButton3.attr("data-name", localStorage.getItem("3"));
-  newButton3.addClass("city-select");
-  newButton3.text(localStorage.getItem("3"));
-  $("#history").prepend(newButton3);}
-
-  //LS 4
-  if(localStorage.getItem("4") === null) {
-    
-  } else {
-  let newButton4 = $("<button>");
-  newButton4.attr("data-name", localStorage.getItem("4"));
-  newButton4.addClass("city-select");
-  newButton4.text(localStorage.getItem("4"));
-  $("#history").prepend(newButton4);}
-
-  //LS 5
-  if(localStorage.getItem("5") === null) {
-    
-  } else {
-  let newButton5 = $("<button>");
-  newButton5.attr("data-name", localStorage.getItem("5"));
-  newButton5.addClass("city-select");
-  newButton5.text(localStorage.getItem("5"));
-  $("#history").prepend(newButton5);}
-*/
-
-//console.log(typeof(localStorage.getItem("cities")));
+getItems()
