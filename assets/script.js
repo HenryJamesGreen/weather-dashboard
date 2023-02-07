@@ -8,8 +8,6 @@ function renderButtons() {
   for (let i = 0; i < cities.length; i++) {
     let a = $("<button>");
 
-
-
     a.attr("data-name", cities[i]);
     // a.attr("id", [i + 1]);
 
@@ -26,7 +24,6 @@ function renderButtons() {
 $("#search-button").on("click", function (event) {
   event.preventDefault();
   cities = history;
-
 
   const city = $("#search-input").val().trim();
   console.log(city);
@@ -349,12 +346,3 @@ $("#clear-history").on("click", function (event) {
   localStorage.clear();
   location.reload();
 });
-
-/*
-function weatherIcons() {
-let iconURL = "http://openweathermap.org/img/wn/" + (response.weather[0].icon) + "@2x.png"
-
-img.attr('src' , iconURL)
-img.attr('class', 'currentIcon')
-
-}*/
