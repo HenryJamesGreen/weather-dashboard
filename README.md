@@ -4,7 +4,7 @@
 
 This project is a weather app for selected cities, complete with today's forecast (current time), followed by a five-day projection (at 12:00).
 
-![](screengrab1.png)
+![](screengrab3.png)  
 
 ## Installation
 
