@@ -1,20 +1,20 @@
-//let cities = [];
-let cities = JSON.parse(localStorage.getItem("buttons"));
+let cities = [];
+//let cities = JSON.parse(localStorage.getItem("buttons"));
 //let cities = JSON.parse(localStorage.getItem("buttons"));
 
 function renderButtons() {
   $("#history").empty();
-  
+
+
 
   for (let i = 0; i < cities.length; i++) {
     let a = $("<button>");
 
     a.attr("data-name", cities[i]);
-    a.attr("id", [i + 1]);
+    // a.attr("id", [i + 1]);
 
     //localStorage.setItem([i + 1], cities[i]);
-    localStorage.setItem("buttons", JSON.stringify(cities));
-
+    
 
     a.addClass("city-select");
 
@@ -26,12 +26,15 @@ function renderButtons() {
 
 $("#search-button").on("click", function (event) {
   event.preventDefault();
+  cities = history;
 
   const city = $("#search-input").val().trim();
   console.log(city);
 
   cities.push(city);
   console.log(cities);
+  localStorage.setItem("buttons", JSON.stringify(cities));
+
   renderButtons();
 });
 
@@ -60,8 +63,7 @@ function getCityLonLan() {
 
 $(document).on("click", ".city-select", getCityLonLan);
 
-renderButtons();
-
+//renderButtons();
 
 function generateDetails() {
   let queryURL =
@@ -273,24 +275,51 @@ function generateDetails() {
   });
 }
 
+const historyBtns = $("#history");
+
+let history = [];
+let storedCities = localStorage.getItem("buttons");
+
+function getHistory() {
+  historyBtns.empty();
+
+  history = history.slice(0, 6);
+
+  history.forEach(function (city) {
+    const btn = $("<button>").text(city);
+    btn.attr("data-name", city);
+    btn.addClass("city-select");
+    btn.attr("role", "button");
+    historyBtns.append(btn);
+  });
+}
+
+if (storedCities !== null) {
+  history = JSON.parse(storedCities);
+  history = Array.from(new Set(history));
+  getHistory();
+}
+
+/*
+
+
+
 
 function getItems() {
-
-
-
-  window.addEventListener("load", function() {
-    let buttons = JSON.parse(localStorage.getItem("cities"));
-    if (buttons) {
-      buttons.forEach(function(button) {
+  window.addEventListener("load", function () {
+    let buttons = JSON.parse(localStorage.getItem("buttons"));
+    let cities = buttons;
+    cities.push(buttons);
+    console.log(cities);
+    if (cities) {
+      cities.forEach(function (button) {
         let btn = document.createElement("button");
-        btn.innerHTML = button.text;
-        btn.style.backgroundColor = button.color;
-        document.body.appendChild(btn);
+        btn.innerHTML = button;
+        $("#history").append(btn);
       });
     }
   });
-  
-
 }
 
-getItems()
+getItems();
+*/
