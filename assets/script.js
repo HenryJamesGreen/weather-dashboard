@@ -5,8 +5,6 @@ let cities = [];
 function renderButtons() {
   $("#history").empty();
 
-
-
   for (let i = 0; i < cities.length; i++) {
     let a = $("<button>");
 
@@ -14,7 +12,6 @@ function renderButtons() {
     // a.attr("id", [i + 1]);
 
     //localStorage.setItem([i + 1], cities[i]);
-    
 
     a.addClass("city-select");
 
@@ -299,6 +296,12 @@ if (storedCities !== null) {
   history = Array.from(new Set(history));
   getHistory();
 }
+
+$("#clear-history").on("click", function (event) {
+  event.preventDefault();
+  $("#history").empty();
+  localStorage.clear();
+});
 
 /*
 
