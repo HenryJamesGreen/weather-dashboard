@@ -1,7 +1,6 @@
 let cities = [];
-//let cities = JSON.parse(localStorage.getItem("buttons"));
-//let cities = JSON.parse(localStorage.getItem("buttons"));
 
+//code to display buttons using for loop.
 function renderButtons() {
   $("#history").empty();
 
@@ -9,9 +8,6 @@ function renderButtons() {
     let a = $("<button>");
 
     a.attr("data-name", cities[i]);
-    // a.attr("id", [i + 1]);
-
-    //localStorage.setItem([i + 1], cities[i]);
 
     a.addClass("city-select");
 
@@ -21,6 +17,7 @@ function renderButtons() {
   }
 }
 
+//user input city button.
 $("#search-button").on("click", function (event) {
   event.preventDefault();
   cities = history;
@@ -35,6 +32,7 @@ $("#search-button").on("click", function (event) {
   renderButtons();
 });
 
+//using API to get longitude and latitude from user input.
 function getCityLonLan() {
   let cityInput = $(this).attr("data-name");
   console.log(cityInput);
@@ -58,10 +56,10 @@ function getCityLonLan() {
   });
 }
 
+//calling long/lat on click of city button (through class 'city-select').
 $(document).on("click", ".city-select", getCityLonLan);
 
-//renderButtons();
-
+//get details from next part of API.
 function generateDetails() {
   let queryURL =
     "https://api.openweathermap.org/data/2.5/forecast?lat=" +
