@@ -76,8 +76,6 @@ function generateDetails() {
   }).then(function (response) {
     console.log(response);
 
-    
-
     const today = $("#today");
     today.empty();
 
@@ -89,13 +87,12 @@ function generateDetails() {
     );
     todayContainer.append(titleEl);
 
-  
     let weatherCondition = response.list[0].weather[0].main;
-      let iconCode = response.list[0].weather[0].icon;
+    let iconCode = response.list[0].weather[0].icon;
 
-      let WC = $("<img>");
-      WC.attr("src", "https://openweathermap.org/img/wn/" + iconCode + ".png" );
-      todayContainer.append(WC);
+    let WC = $("<img>");
+    WC.attr("src", "https://openweathermap.org/img/wn/" + iconCode + ".png");
+    todayContainer.append(WC);
 
     let TempEl = $("<p>");
     TempEl.text(
@@ -110,13 +107,6 @@ function generateDetails() {
     let humEl = $("<p>");
     humEl.text("Humidity: " + response.list[0].main.humidity + " %");
     todayContainer.append(humEl);
-
-    //const todayImg = $("<img>");
-    //<img src="http://openweathermap.org/img/wn/${iconCode}@2x.png"></img>`;
-    //todayImg.attr('src', "https://openweathermap.org/img/wn/" + response.list[0].weather.icon + "@2x.png" + "&appid=d7d08d016a42640d3383d7dbad4a2c9c" );
-    //forecastContainer.append(todayImg);
-
-     //`<img src="https://openweathermap.org/img/wn/${iconCode}.png"></img>`;
 
     today.prepend(todayContainer);
 
@@ -163,8 +153,14 @@ function generateDetails() {
     }
     console.log(listsArray);
 
-  
+    //tomorrow's Icon
 
+    let weatherCondition1 = listsArray[0].weather[0].main;
+    let iconCode1 = listsArray[0].weather[0].icon;
+
+    let WC1 = $("<img>");
+    WC1.attr("src", "https://openweathermap.org/img/wn/" + iconCode1 + ".png");
+    forecastContainer.append(WC1);
     //tomorrow's temp
     const tomorrowTempEl = $("<p>");
     tomorrowTempEl.text(
@@ -185,7 +181,7 @@ function generateDetails() {
     tomorrowHumEl.text("Humidity: " + listsArray[0].main.humidity + " %");
     forecastContainer.append(tomorrowHumEl);
 
-    //Day 2.
+    //Day 2 ---------------------------------
 
     const forecastContainer2 = $("<div>");
 
@@ -195,11 +191,14 @@ function generateDetails() {
     day2TitleEl.text(moment().add(2, "day").format("DD-M-YYYY"));
     forecastContainer2.append(day2TitleEl);
     forecastContainer2.addClass("col-lg-2 card");
-
-   
-   //img.attr('src' , iconURL)
-// img.attr('class', 'currentIcon')
     tomorrow.append(forecastContainer2);
+
+    let weatherCondition2 = listsArray[1].weather[0].main;
+    let iconCode2 = listsArray[1].weather[0].icon;
+
+    let WC2 = $("<img>");
+    WC2.attr("src", "https://openweathermap.org/img/wn/" + iconCode2 + ".png");
+    forecastContainer2.append(WC2);
 
     const day2TempEl = $("<p>");
     day2TempEl.text(
@@ -215,7 +214,6 @@ function generateDetails() {
     day2HumEl.text("Humidity: " + listsArray[1].main.humidity + " %");
     forecastContainer2.append(day2HumEl);
 
-
     //Day 3.
 
     const forecastContainer3 = $("<div>");
@@ -227,6 +225,13 @@ function generateDetails() {
     forecastContainer3.append(day3TitleEl);
     tomorrow.append(forecastContainer3);
     forecastContainer3.addClass("col-lg-2 card");
+
+    let weatherCondition3 = listsArray[2].weather[0].main;
+    let iconCode3 = listsArray[2].weather[0].icon;
+
+    let WC3 = $("<img>");
+    WC3.attr("src", "https://openweathermap.org/img/wn/" + iconCode3 + ".png");
+    forecastContainer3.append(WC3);
 
     const day3TempEl = $("<p>");
     day3TempEl.text(
@@ -254,6 +259,13 @@ function generateDetails() {
     tomorrow.append(forecastContainer4);
     forecastContainer4.addClass("col-lg-2 card");
 
+    let weatherCondition4 = listsArray[3].weather[0].main;
+    let iconCode4 = listsArray[3].weather[0].icon;
+
+    let WC4 = $("<img>");
+    WC4.attr("src", "https://openweathermap.org/img/wn/" + iconCode4 + ".png");
+    forecastContainer4.append(WC4);
+
     const day4TempEl = $("<p>");
     day4TempEl.text(
       "Temp: " + Math.round(listsArray[3].main.temp - 273.15) + "℃"
@@ -279,6 +291,13 @@ function generateDetails() {
     forecastContainer5.append(day5TitleEl);
     tomorrow.append(forecastContainer5);
     forecastContainer5.addClass("col-lg-2 card");
+
+    let weatherCondition5 = listsArray[4].weather[0].main;
+    let iconCode5 = listsArray[4].weather[0].icon;
+
+    let WC5 = $("<img>");
+    WC5.attr("src", "https://openweathermap.org/img/wn/" + iconCode5 + ".png");
+    forecastContainer5.append(WC5);
 
     const day5TempEl = $("<p>");
     day5TempEl.text(
