@@ -74,6 +74,8 @@ function generateDetails() {
   }).then(function (response) {
     console.log(response);
 
+    //today's entries.
+
     const today = $("#today");
     today.empty();
 
@@ -108,15 +110,14 @@ function generateDetails() {
 
     today.prepend(todayContainer);
 
-    ///forecast
+    ///forecast.
 
     const tomorrow = $("#forecast");
     tomorrow.empty();
 
     const forecastContainer = $("<div>");
-    //add 5 day title
 
-    //add details day 1
+    //add details.
 
     const tomorrowTitleEl = $("<h4>");
     tomorrowTitleEl.addClass("card-title");
@@ -133,6 +134,7 @@ function generateDetails() {
     //console.log(timeOne);
     // console.log(response.list.length);
 
+    //for loop through initial array, match with times above to generate landing times of 12:00 for each day consecutively.
     let listsArray = [];
 
     for (let i = 0; i < response.list.length; i++) {
@@ -151,7 +153,7 @@ function generateDetails() {
     }
     console.log(listsArray);
 
-    //tomorrow's Icon
+    //tomorrow's Icon (day 1).
 
     let weatherCondition1 = listsArray[0].weather[0].main;
     let iconCode1 = listsArray[0].weather[0].icon;
@@ -313,6 +315,8 @@ function generateDetails() {
   });
 }
 
+//method for retrieving stored data and populating history element therewith.
+
 const historyBtns = $("#history");
 
 let history = [];
@@ -338,6 +342,7 @@ if (storedCities !== null) {
   getHistory();
 }
 
+//clear data and history buttons. Reload to avoid accidental repopulation through populated arrays.
 $("#clear-history").on("click", function (event) {
   event.preventDefault();
   $("#history").empty();
