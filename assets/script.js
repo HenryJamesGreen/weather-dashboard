@@ -344,6 +344,7 @@ $("#clear-history").on("click", function (event) {
   event.preventDefault();
   $("#history").empty();
   localStorage.clear();
+  location.reload();
 });
 
 /*
