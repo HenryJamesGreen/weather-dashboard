@@ -8,6 +8,8 @@ function renderButtons() {
   for (let i = 0; i < cities.length; i++) {
     let a = $("<button>");
 
+    
+
     a.attr("data-name", cities[i]);
     // a.attr("id", [i + 1]);
 
