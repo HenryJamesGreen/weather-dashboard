@@ -1,3 +1,8 @@
+body {
+  background-image: url("./images/wolfgang-hasselmann-bR_-gllg7Bs-unsplash.jpg");
+  background-repeat: no-repeat;
+}
+
 p {
   font-size: 13px;
 }
@@ -9,11 +14,10 @@ p {
 }
 
 button {
-    background-color: rgba(220, 27, 27, 0.906);
-    
+  background-color: rgba(218, 220, 243, 0.906);
 }
 
 .container-fluid {
-    background-color: rgba(252, 252, 253, 0.906);
+  background-image: url("./images/wolfgang-hasselmann-bR_-gllg7Bs-unsplash.jpg");
+  background-repeat: no-repeat, repeat;
 }
-
