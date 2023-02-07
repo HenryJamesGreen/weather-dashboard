@@ -76,6 +76,8 @@ function generateDetails() {
   }).then(function (response) {
     console.log(response);
 
+    
+
     const today = $("#today");
     today.empty();
 
@@ -86,6 +88,14 @@ function generateDetails() {
       response.city.name + " (" + moment().format("MMMM Do YYYY") + ") "
     );
     todayContainer.append(titleEl);
+
+  
+    let weatherCondition = response.list[0].weather[0].main;
+      let iconCode = response.list[0].weather[0].icon;
+
+      let WC = $("<img>");
+      WC.attr("src", "https://openweathermap.org/img/wn/" + iconCode + ".png" );
+      todayContainer.append(WC);
 
     let TempEl = $("<p>");
     TempEl.text(
@@ -100,6 +110,13 @@ function generateDetails() {
     let humEl = $("<p>");
     humEl.text("Humidity: " + response.list[0].main.humidity + " %");
     todayContainer.append(humEl);
+
+    //const todayImg = $("<img>");
+    //<img src="http://openweathermap.org/img/wn/${iconCode}@2x.png"></img>`;
+    //todayImg.attr('src', "https://openweathermap.org/img/wn/" + response.list[0].weather.icon + "@2x.png" + "&appid=d7d08d016a42640d3383d7dbad4a2c9c" );
+    //forecastContainer.append(todayImg);
+
+     //`<img src="https://openweathermap.org/img/wn/${iconCode}.png"></img>`;
 
     today.prepend(todayContainer);
 
@@ -146,6 +163,8 @@ function generateDetails() {
     }
     console.log(listsArray);
 
+  
+
     //tomorrow's temp
     const tomorrowTempEl = $("<p>");
     tomorrowTempEl.text(
@@ -176,6 +195,10 @@ function generateDetails() {
     day2TitleEl.text(moment().add(2, "day").format("DD-M-YYYY"));
     forecastContainer2.append(day2TitleEl);
     forecastContainer2.addClass("col-lg-2 card");
+
+   
+   //img.attr('src' , iconURL)
+// img.attr('class', 'currentIcon')
     tomorrow.append(forecastContainer2);
 
     const day2TempEl = $("<p>");
@@ -191,6 +214,7 @@ function generateDetails() {
     const day2HumEl = $("<p>");
     day2HumEl.text("Humidity: " + listsArray[1].main.humidity + " %");
     forecastContainer2.append(day2HumEl);
+
 
     //Day 3.
 
@@ -304,25 +328,10 @@ $("#clear-history").on("click", function (event) {
 });
 
 /*
+function weatherIcons() {
+let iconURL = "http://openweathermap.org/img/wn/" + (response.weather[0].icon) + "@2x.png"
 
+img.attr('src' , iconURL)
+img.attr('class', 'currentIcon')
 
-
-
-function getItems() {
-  window.addEventListener("load", function () {
-    let buttons = JSON.parse(localStorage.getItem("buttons"));
-    let cities = buttons;
-    cities.push(buttons);
-    console.log(cities);
-    if (cities) {
-      cities.forEach(function (button) {
-        let btn = document.createElement("button");
-        btn.innerHTML = button;
-        $("#history").append(btn);
-      });
-    }
-  });
-}
-
-getItems();
-*/
+}*/
