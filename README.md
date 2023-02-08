@@ -14,7 +14,7 @@ N/A
 
 Wesbite link: https://henryjamesgreen.github.io/weather-dashboard/
 
-To find the forecast and current weather for a city of your choosing, just type the city in the search bar, click the 'search' button and the data will present itself. The data will also save on your return. If you'd like to clear the application, simply click 'clear city history'.
+To find the forecast and current weather for a city of your choosing, just type the city in the search bar, click the 'search' button and the city button will show. Click on that city button, and data will present itself. The data will also save on your return. If you'd like to clear the application, simply click 'clear city history'.
 
 ## Credits
 
